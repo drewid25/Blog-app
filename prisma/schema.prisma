@@ -18,6 +18,8 @@ model Post {
   published  Boolean   @default(false)
   createdAt  DateTime  @default(now())
   updatedAt  DateTime  @updatedAt
+  authorID   Int
+  author     User      @relation(fields:[authorID],references: [id])
 }
 
 model User {
@@ -27,6 +29,8 @@ model User {
    password   String
    createdAt  DateTime  @default(now())
    updatedAt  DateTime  @updatedAt
+   posts      Post[] 
+   profile    Profile?
 }
 
 model Profile {
@@ -34,4 +38,6 @@ id         Int       @id @default(autoincrement())
 bio        String
 createdAt  DateTime  @default(now())
 updatedAt  DateTime  @updatedAt
+userId     Int       @unique
+user       User      @relation(fields:[userId],references: [id])
 }
