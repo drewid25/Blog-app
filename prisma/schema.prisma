@@ -18,7 +18,7 @@ model Post {
   published  Boolean   @default(false)
   createdAt  DateTime  @default(now())
   updatedAt  DateTime  @updatedAt
-  authorID   Int
+  authorID   Int      
   author     User      @relation(fields:[authorID],references: [id])
 }
 
@@ -38,6 +38,6 @@ id         Int       @id @default(autoincrement())
 bio        String
 createdAt  DateTime  @default(now())
 updatedAt  DateTime  @updatedAt
-userId     Int       @unique
+userId     Int       
 user       User      @relation(fields:[userId],references: [id])
 }
