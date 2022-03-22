@@ -1,6 +1,7 @@
 import {ApolloServer} from "apollo-server"
 import {typeDefs} from "./schema"
-import {Query,Mutation} from "./resolvers"
+import {Query} from "./resolvers"
+import {Mutation} from "./resolvers/Mutations/Mutations"
 import {PrismaClient,Prisma} from "@prisma/client"
 
 const prisma = new PrismaClient()
@@ -15,7 +16,7 @@ typeDefs,
 resolvers:{
     Query,
     Mutation
-}  ,
+},
 context:{
     prisma
 }                                             

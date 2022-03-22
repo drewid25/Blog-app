@@ -8,6 +8,8 @@ export const typeDefs=gql`
        type Mutation{
            postCreate(post:PostInput!): PostPayload!
            postUpdate(postId:ID!,post:PostInput!):PostPayload!
+           postDelete(postId:ID!):PostPayload!
+           userCreate(user:UserInput!):UserPayload
        }
 
        type Post{
@@ -39,8 +41,21 @@ export const typeDefs=gql`
            userErrors: [UserError!]!
            post: Post
        }
+
+       type UserPayload{
+           userErrors: [UserError!]!
+           user: User
+       }
        input PostInput{
            title: String
            content: String
+       }
+       input UserInput{
+           name: String
+           email: String
+           password:String
+     
+          
+          
        }
 `
