@@ -140,7 +140,7 @@ export const authResolvers={
     return{
         userErrors:[],
         token: JWT.sign({userId:user.id},JSON_SIGNATURE,{
-            expiresIn:3600000
+            expiresIn:360000,
         })
     }
     },
